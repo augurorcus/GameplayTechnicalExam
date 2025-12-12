@@ -1,0 +1,18 @@
+{
+    "name": "PixelDust.Utilities.Editor",
+    "rootNamespace": "",
+    "references": [
+        "GUID:2790683054c70884ab522c43e9b07874"
+    ],
+    "includePlatforms": [
+        "Editor"
+    ],
+    "excludePlatforms": [],
+    "allowUnsafeCode": false,
+    "overrideReferences": false,
+    "precompiledReferences": [],
+    "autoReferenced": true,
+    "defineConstraints": [],
+    "versionDefines": [],
+    "noEngineReferences": false
+}

@@ -1,0 +1,23 @@
+{
+  "name": "com.pixeldust.com.pixel-dust.editor-utilities",
+  "version": "1.0.2",
+  "displayName": "PixelDust Editor Utilities (alpha)",
+  "description": "Helpful utilities.",
+  "unity": "2020.1",
+  "unityRelease": "0b5",
+  "documentationUrl": "https://example.com/",
+  "changelogUrl": "https://example.com/changelog.html",
+  "licensesUrl": "https://example.com/licensing.html",
+  "keywords": [
+    "Random",
+    "Weights",
+    "Probability"
+  ],
+  "author": {
+    "name": "Pixel Dust",
+    "email": "alistair.m.obrien@gmail.com",
+    "url": "https://github.com/pixel-reverie"
+  },
+  "type": "tool",
+  "hideInEditor": true
+}
