@@ -4,17 +4,21 @@ using UnityEngine;
 
 public class AbilitySlotsManager : MonoBehaviour
 {
-    [SerializeField] private Ability abilityToTrigger;
+    [SerializeField] private AbilitySlots _abilitySlotsPrefab;
 
-    public async UniTask Start()
-    {
-        Debug.Log("start");
-        abilityToTrigger.InitializeAbility();
-    }
+    [SerializeField] private SOListAbility _characterAbilityList;
 
-    [Button()]
-    public async UniTask TriggeAbility()
-    {
-        await abilityToTrigger.TriggerAbilityBehavior();
-    }
+
+
+    //public async UniTask Start()
+    //{
+    //    Debug.Log("start");
+    //    abilityToTrigger.InitializeAbility();
+    //}
+
+    //[Button()]
+    //public async UniTask TriggerAbility()
+    //{
+    //    await abilityToTrigger.TriggerAbilityBehavior();
+    //}
 }
