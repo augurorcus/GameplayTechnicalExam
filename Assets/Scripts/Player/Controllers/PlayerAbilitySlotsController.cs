@@ -3,6 +3,7 @@ using System.Text.RegularExpressions;
 using UnityEngine;
 using UnityEngine.InputSystem;
 using UnityEngine.Windows;
+using Cysharp;
 
 public class PlayerAbilitySlotsController : PlayerController<AbilitySlotsManager>
 {
@@ -14,11 +15,12 @@ public class PlayerAbilitySlotsController : PlayerController<AbilitySlotsManager
         playerInputActions.PlayerAbilityInput.AbilityTrigger.performed += OnAbilityTrigger;
     }
 
-    private void OnAbilityTrigger(InputAction.CallbackContext context)
+    private async void OnAbilityTrigger(InputAction.CallbackContext context)
     {
         string inputContext = context.control.ToString();
         string cleanedInput = inputContext.Replace(KeyboardInput, "");
         int inputNumber = int.Parse(cleanedInput);
-        controlledObject.TriggerAbility(inputNumber);
+
+        await controlledObject.TriggerAbility(inputNumber);
     }
 }

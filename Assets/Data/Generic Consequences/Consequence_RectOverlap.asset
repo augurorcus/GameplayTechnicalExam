@@ -1,0 +1,28 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: e75073a766b3411468837a1f6271cf5b, type: 3}
+  m_Name: Consequence_RectOverlap
+  m_EditorClassIdentifier: 
+  _rectWidth:
+    value: 1
+    _statID: ID3c5f78b5-875c-410f-a81e-899ae04ae4512025
+  _rectDepth:
+    value: 1
+    _statID: ID5992475a-142d-4928-bb09-99f9e5caeb9b2025
+  _rectHeight:
+    value: 1
+    _statID: ID33116f8e-3663-441e-9079-2072cd3352092025
+  _layerMask:
+    serializedVersion: 2
+    m_Bits: 64
+  _visuals: {fileID: 5496275830506772883, guid: 76e632dfbb1640c4ca35e4cf60fbb846,
+    type: 3}

@@ -4,7 +4,6 @@ using Cysharp;
 
 public abstract class Consequence : ScriptableObject
 {
-    [SerializeField] private Consequence _targetConsequence;
 
     public void TriggerConsequence(Dictionary<string, ConsequenceAndValue> consequenceData)
     {
@@ -14,10 +13,7 @@ public abstract class Consequence : ScriptableObject
             consequenceData.Remove(SendDataKey);
         }
 
-        if (_targetConsequence != null)
-        {
-            _targetConsequence.ConsequenceEffect(consequenceData);
-        }
+        ConsequenceEffect(consequenceData);
     }
 
     protected abstract void ConsequenceEffect(Dictionary<string, ConsequenceAndValue> consequenceData);

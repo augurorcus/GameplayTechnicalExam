@@ -1,0 +1,33 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 21f083731ced3494bbd0f4dd10f7e8be, type: 3}
+  m_Name: AOE_Heal
+  m_EditorClassIdentifier: 
+  _targetConsequence: {fileID: 0}
+  _areaRadius:
+    value: 3
+    _statID: ID487ac2fe-bdfe-4347-ba10-aa1cdd27a2222025
+  _effectDuration:
+    value: 3
+    _statID: ID0f0f2e56-ebae-45e9-a0ce-53aec011c6072025
+  _triggerCount:
+    value: 6
+    _statID: ID673e2799-7b67-4315-866d-045dc2829a6c2025
+  _areaOffEffectPrefab: {fileID: 3165717135526998319, guid: 8e77c9738ffeb714f998ffae3412b355,
+    type: 3}
+  _targetLayers:
+    serializedVersion: 2
+    m_Bits: 64
+  _areaOfEffectTargetPosition: {fileID: 11400000, guid: 52265811c37048441a41e52482bf4123,
+    type: 2}
+  _consequences:
+  - {fileID: 11400000, guid: 1728cc14903421241b4d946e25e73a11, type: 2}

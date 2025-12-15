@@ -25,7 +25,7 @@ public class ApplyStatusConsequence : Consequence
                 if (currentTarget.TryGetComponent<IStatusApplicable>(out IStatusApplicable targetStatusHandler))
                 {
                     targetStatusHandler.AddStatus(_statusToUse, _statusDuration.Value, _totalTriggers.Value);
-                }
+                }   
             }
         }
     }
