@@ -13,4 +13,9 @@ public static class Helper
         EventSystem.current.RaycastAll(eventDataCurrentPosition, results);
         return results.Count > 0;
     }
+
+    public static float Normalize(float current, float min, float max)
+    {
+        return (current - min) / (max - min);
+    }
 }

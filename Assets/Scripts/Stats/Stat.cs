@@ -1,6 +1,8 @@
-using System;
-using UnityEngine;
 using Sirenix.OdinInspector;
+using System;
+using System.Xml;
+using UniRx;
+using UnityEngine;
 
 [Serializable]
 public class Stat<T>
@@ -9,9 +11,13 @@ public class Stat<T>
     [SerializeField] private string _statID;
 
     [Button()]
-    public void UpdateStatID(T value)
+    public void UpdateStatID()
     {
-        _statID = "ID"+ DateTime.Today.ToString("yyyyMMdd").GetHashCode();
+        string uniqueID = Guid.NewGuid().ToString();
+        string timestamp = DateTime.Now.ToString("yyyyMMddHHmmss");
+        long uniqueNumber = long.Parse(timestamp);
+
+        _statID = "ID" + uniqueID + uniqueNumber.ToString().Substring(0, 4);
     } 
 
     public T Value { get => value; }

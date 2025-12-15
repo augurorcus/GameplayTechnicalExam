@@ -18,12 +18,12 @@ public class CharacterStatusHandler : CharacterComponent, IStatusApplicable
     {
         StatusInstance existingStatusInstance = _currentActiveStatus.FirstOrDefault(x => x.StatusType == statusToAdd);
 
-        if (existingStatusInstance != null && !existingStatusInstance.IsStackFull())
+        if (existingStatusInstance != null)
         {
-            //if there is an existing status
             if (existingStatusInstance.StatusType.IsStackable && !existingStatusInstance.IsStackFull())
             {
                 existingStatusInstance.AddStack(1);
+
                 if (existingStatusInstance.StatusType.IsRefreshable)
                 {
                     existingStatusInstance.RefreshStatus();
@@ -32,7 +32,9 @@ public class CharacterStatusHandler : CharacterComponent, IStatusApplicable
             else
             {
                 if (existingStatusInstance.StatusType.CanDoMultipleInstance)
+                {
                     AddNewStatus(statusToAdd, duration, triggerCount);
+                }
             }
         }
         else
@@ -45,6 +47,7 @@ public class CharacterStatusHandler : CharacterComponent, IStatusApplicable
     {
 
         StatusInstance newStatusToAdd = _statusFactory.CreateProduct(statusToAdd, duration, triggerCount);
+        newStatusToAdd.SetTarget(this);
         _currentActiveStatus.Add(newStatusToAdd);
     }
 
@@ -68,11 +71,6 @@ public class CharacterStatusHandler : CharacterComponent, IStatusApplicable
 
             if (currentStatus.IsStatusFinished())
             {
-                if (!currentStatus.StatusType.ClearWholeStackOnFinish)
-                {
-                    currentStatus.SubtractStack(1);
-                }
-                else
                 {
                     _currentActiveStatus.RemoveAt(statusIndex);
                 }

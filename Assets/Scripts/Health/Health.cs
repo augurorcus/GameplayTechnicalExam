@@ -9,10 +9,30 @@ public class Health : MonoBehaviour, IDamageable, IHealable
     [SerializeField] private FloatVariable _maxHealth;
     [SerializeField,ReadOnly] private float _currentHealth;
 
-    [SerializeField] private Consequence _OnDeathConsequence;
-
+    [SerializeField] private List<Consequence> _OnDeathConsequence;
+    
     public UnityEvent<float> OnHealthUpdate;
     public UnityEvent<float> OnDeath;
+
+    [SerializeField] private int _maxHealFactor;
+    private int _healFactor = 0;
+
+    private void Start()
+    {
+        _currentHealth = _maxHealth.Value;
+    }
+
+    public void IncreaseHealingFactor(int healFactorToAdd)
+    {
+        if (_healFactor >= _maxHealFactor) return;
+
+        _healFactor += Mathf.Abs(healFactorToAdd);
+    }
+
+    public void ResetHealingFactor()
+    {
+        _healFactor = 0;
+    }
 
     public void Damage(float value)
     {
@@ -30,17 +50,32 @@ public class Health : MonoBehaviour, IDamageable, IHealable
 
         OnHealthUpdate.Invoke(_currentHealth);
 
-        if(_currentHealth <= 0)
+        if (_currentHealth <= 0)
         {
+            Debug.Log("die");
             Dictionary<string, ConsequenceAndValue> data = new Dictionary<string, ConsequenceAndValue>();
-            _OnDeathConsequence.TriggerConsequence(data);
+
+            Collider[] newTargets = new Collider[] { gameObject.GetComponent<Collider>() };
+            data.Add("Targets", new ConsequenceAndValue(null, newTargets));
+
+            foreach (Consequence currentConsequence in _OnDeathConsequence)
+            {
+                currentConsequence.TriggerConsequence(data);
+            }
         }
     }
 
     public void Heal(float value)
     {
+        float additionalHealing = 0;
+
+        if(_healFactor > 0)
+        {
+            additionalHealing = value + (value / _healFactor * 0.5f);
+        }
+
         float temporaryHealth = _currentHealth;
-        temporaryHealth += Mathf.Abs(value);
+        temporaryHealth += Mathf.Abs(value + additionalHealing);
 
         if(temporaryHealth >= _maxHealth.Value)
         {

@@ -19,9 +19,17 @@ public class DamageConsequence : Consequence
     {
         _targetsToDamage = new List<IDamageable>();
 
-        if(consequenceData.TryGetValue(ReceiveDataKey, out ConsequenceAndValue value))
+        if(consequenceData.TryGetValue(ReceiveDataKey, out ConsequenceAndValue data))
         {
-            _targetsToDamage = (List<IDamageable>)value.arguments;
+            Collider[] targets = (Collider[])data.arguments;
+
+            foreach (Collider target in targets) 
+            {
+                if (target.TryGetComponent<IDamageable>(out IDamageable damageComponent))
+                {
+                    _targetsToDamage.Add(damageComponent);
+                }
+            }
         }
 
         if (_targetsToDamage.Count > 0)

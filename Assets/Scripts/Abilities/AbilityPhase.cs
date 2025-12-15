@@ -53,7 +53,6 @@ public class AbilityPhase
                         foreach (Consequence currentConsequence in consequenceExecuteList)
                         {
                             currentConsequence.TriggerConsequence(consequenceData);
-                            //ConsequenceHandler.Instance.RegisterConsequenceCommand(currentConsequence.TriggerConsequence);
                         }
                     }
                 }
