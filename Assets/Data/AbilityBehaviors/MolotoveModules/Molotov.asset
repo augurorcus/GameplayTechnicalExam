@@ -1,0 +1,22 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 22ad572cdd141a844bd571f3945b459e, type: 3}
+  m_Name: Molotov
+  m_EditorClassIdentifier: 
+  _abillityPhases:
+  - phaseName: 'Phase 1 '
+    phaseDescription: spawns an AOE Effect and burns enemies
+    _phaseDuration:
+      value: 1
+      _statID: IDb31bdb68-3339-4244-83b7-5617d6257cfb2025
+    _consequenceModules: {fileID: 11400000, guid: 3fde52929035d504883d1763d1600eea,
+      type: 2}

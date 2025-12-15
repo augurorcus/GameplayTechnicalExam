@@ -1,0 +1,23 @@
+{
+  "name": "com.pixeldust.com.pixel-dust.weighted-lists",
+  "version": "1.2.2",
+  "displayName": "PixelDust Weighted Lists (alpha)",
+  "description": "A faster way to deal with random elements in lists!",
+  "unity": "2020.1",
+  "unityRelease": "0b5",
+  "documentationUrl": "https://example.com/",
+  "changelogUrl": "https://example.com/changelog.html",
+  "licensesUrl": "https://example.com/licensing.html",
+  "keywords": [
+    "Random",
+    "Weights",
+    "Probability"
+  ],
+  "author": {
+    "name": "Pixel Dust",
+    "email": "alistair.m.obrien@gmail.com",
+    "url": "https://github.com/pixel-reverie"
+  },
+  "type": "tool",
+  "hideInEditor": true
+}

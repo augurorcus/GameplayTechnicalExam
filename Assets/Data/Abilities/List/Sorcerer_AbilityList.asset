@@ -1,0 +1,20 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b779954085ca1364aa75ae09b944a0ed, type: 3}
+  m_Name: Sorcerer_AbilityList
+  m_EditorClassIdentifier: 
+  list:
+  - {fileID: 11400000, guid: 4b8dc2d889188f24b9ba37d810b0d86a, type: 2}
+  - {fileID: 11400000, guid: b2b7ffe9d5a73ad44acb75be80af44b3, type: 2}
+  - {fileID: 11400000, guid: 2496ec97e2762584daf589b9abb50645, type: 2}
+  - {fileID: 11400000, guid: 7d5fcae18d5adc34995c77f5d5c46da9, type: 2}
+  - {fileID: 11400000, guid: c85b67212a0b56844adc79b7f505ac94, type: 2}
