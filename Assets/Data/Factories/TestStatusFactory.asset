@@ -9,10 +9,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8b5955aaec4ebf46a83eb2bcf9dde7d, type: 3}
-  m_Name: Consequence_Damage_2
+  m_Script: {fileID: 11500000, guid: fbffc7b0720dfb847a5803fd195b6888, type: 3}
+  m_Name: TestStatusFactory
   m_EditorClassIdentifier: 
-  _targetConsequence: {fileID: 11400000, guid: e1f360172b02a05489bc19dffd8790be, type: 2}
-  _damageValue:
-    value: 2
-  _customDamageText: Second Damager
+  _defaultStatus: {fileID: 0}
+  _defaultStatusDuration: {fileID: 0}
+  _defaultStatusTriggerCount: {fileID: 0}

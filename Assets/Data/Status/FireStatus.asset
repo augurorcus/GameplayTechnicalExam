@@ -9,10 +9,13 @@ MonoBehaviour:
   m_GameObject: {fileID: 0}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: f8b5955aaec4ebf46a83eb2bcf9dde7d, type: 3}
-  m_Name: Consequence_Damage_Target1
+  m_Script: {fileID: 11500000, guid: de5e44247ddb0714682c4811951941b5, type: 3}
+  m_Name: FireStatus
   m_EditorClassIdentifier: 
-  _targetConsequence: {fileID: 0}
-  _damageValue:
-    value: 100
-  _customDamageText: TargetDamage
+  IsStackable: 0
+  MaxStack: 3
+  ClearWholeStackOnFinish: 0
+  IsRefreshable: 1
+  CanDoMultipleInstance: 0
+  ConsequencesToTrigger: []
+  ConsequencesOnExpired: []

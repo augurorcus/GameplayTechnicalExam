@@ -1,31 +1,43 @@
+using System.Collections.Generic;
 using UnityEngine;
+using Cysharp;
 
 public abstract class Consequence : ScriptableObject
 {
     [SerializeField] private Consequence _targetConsequence;
 
-    public void TriggerConsequence()
+    public void TriggerConsequence(Dictionary<string, ConsequenceAndValue> consequenceData)
     {
-        ConsequenceEffect();
-
-       // UniTask.WaitUntil(IsConsequenceFinished);
+        if (consequenceData.ContainsKey(SendDataKey))
+        {
+            //override the existing send data from
+            consequenceData.Remove(SendDataKey);
+        }
 
         if (_targetConsequence != null)
         {
-            ProcessTargetConseqeunce();
+            _targetConsequence.ConsequenceEffect(consequenceData);
         }
     }
-    protected abstract void ConsequenceEffect();
 
-    protected abstract bool IsConsequenceFinished();
+    protected abstract void ConsequenceEffect(Dictionary<string, ConsequenceAndValue> consequenceData);
+    protected abstract string ReceiveDataKey { get; }
+    protected abstract string SendDataKey { get; }
+}
 
-    private void ProcessTargetConseqeunce()
+public class ConsequenceAndValue
+{
+    public Consequence consequenceObject;
+    public object arguments;
+
+    public ConsequenceAndValue(Consequence consequenceObject, object arguments)
     {
-        _targetConsequence.ConsequenceEffect();
+        this.consequenceObject = consequenceObject;
+        this.arguments = arguments;
     }
 }
 
 public class ConsequenceCommand
 {
-    
+
 }

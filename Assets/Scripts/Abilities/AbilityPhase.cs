@@ -15,12 +15,16 @@ public class AbilityPhase
 
     private float _elapsedTime;
     private List<float> _listOfNormalizedTime;
+
+    Dictionary<string, ConsequenceAndValue> consequenceData;
+
     public void StartAbilityPhase()
     {
         Debug.Log("Start Phase:" +  phaseName);
         _listOfNormalizedTime = new List<float>();
         _listOfNormalizedTime = _consequenceModules.ConsequenceValues.Keys.ToList();
         _elapsedTime = 0;
+        consequenceData = new Dictionary<string, ConsequenceAndValue>();
     }
 
     public async UniTask ProcessConsequences()
@@ -48,7 +52,7 @@ public class AbilityPhase
                         Debug.Log("Found a Consequence");
                         foreach (Consequence currentConsequence in consequenceExecuteList)
                         {
-                            currentConsequence.TriggerConsequence();
+                            currentConsequence.TriggerConsequence(consequenceData);
                             //ConsequenceHandler.Instance.RegisterConsequenceCommand(currentConsequence.TriggerConsequence);
                         }
                     }

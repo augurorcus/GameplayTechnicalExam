@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections.Generic;
 
 [CreateAssetMenu(menuName = "Consequence/Damage")]
 public class DamageConsequence : Consequence
@@ -6,15 +7,32 @@ public class DamageConsequence : Consequence
     [SerializeField] private Stat<float> _damageValue;
     [SerializeField] private string _customDamageText;
 
+    private List<IDamageable> _targetsToDamage;
+
     public Stat<float> DamageValue { get => _damageValue; }
 
-    protected override void ConsequenceEffect()
-    {
-        Debug.Log("Damaged Enemy: " + _damageValue.Value + " " + _customDamageText);
-    }
+    protected override string ReceiveDataKey => "Targets";
 
-    protected override bool IsConsequenceFinished()
+    protected override string SendDataKey => "Result";
+
+    protected override void ConsequenceEffect(Dictionary<string, ConsequenceAndValue> consequenceData)
     {
-        return true;
+        _targetsToDamage = new List<IDamageable>();
+
+        if(consequenceData.TryGetValue(ReceiveDataKey, out ConsequenceAndValue value))
+        {
+            _targetsToDamage = (List<IDamageable>)value.arguments;
+        }
+
+        if (_targetsToDamage.Count > 0)
+        {
+            foreach (IDamageable currentTarget in _targetsToDamage)
+            {
+                currentTarget.Damage(_damageValue.Value);
+            }
+
+            Debug.Log("Damaged Enemy: " + _damageValue.Value + " " + _customDamageText);
+        }
+
     }
 }
